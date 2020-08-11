@@ -1,0 +1,67 @@
+/* TOGGLE MODE */
+.switch-mode {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+  }
+  
+  .label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: var(--font-color);
+    font-size: 0.8rem;
+    outline: none;
+  }
+  
+  .label-text {
+    margin-top: 10px;
+  }
+  
+  .toggle {
+    isolation: isolate;
+    position: relative;
+    height: 30px;
+    width: 60px;
+    border: 2px solid var(--main-color);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow:
+      -8px -4px 8px 0px var(--light),
+      8px 4px 12px 0px var(--shadow),
+      4px 4px 4px 0px var(--shadow) inset,
+      -4px -4px 4px 0px var(--light) inset;
+  }
+
+  @media (max-width: 1400px) {
+    .switch-mode {
+      justify-self: right;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .toggle {
+      zoom: 0.8;
+    }
+  }
+  
+  .toggle-state {
+    display: none;
+  }
+  
+  .indicator {
+    height: 100%;
+    width: 200%;
+    background: var(--main-color);
+    border-radius: 15px;
+    transform: translate3d(-75%, 0, 0);
+    transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+    box-shadow:
+      -8px -4px 8px 0px var(--light),
+      8px 4px 12px 0px var(--shadow);
+  }
+  
+  .toggle-state:checked ~ .indicator {
+    transform: translate3d(25%, 0, 0);
+  }
